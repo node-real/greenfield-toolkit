@@ -1,0 +1,356 @@
+# Quick start
+
+## Installation
+
+```bash
+npm i wagmi viem @bnb-chain/greenfield-js-sdk @bnb-chain/greenfield-cosmos-types @bnb-chain/reed-solomon
+```
+
+- wagmi > 1.0.0
+- viem > 1.0.0
+- @bnb-chain/greenfield-js-sdk >= 1.2.0
+- @bnb-chain/reed-solomon >= 1.1.3
+- @bnb-chain/greenfield-cosmos-types >= 0.4.0-alpha.30
+
+## Examples
+
+- [nextjs-with-walletkit](https://github.com/node-real/greenfield-uploadkit/examples/nextjs-with-walletkit)
+- [nextjs-with-rainbowkit](https://github.com/node-real/greenfield-uploadkit/examples/nextjs-with-rainbowkitnextjs-with-rainbowkit)
+- [vite-with-walletkit](https://github.com/node-real/greenfield-uploadkit/examples/vite-with-walletkit)
+
+## Playground
+
+In this example, we use [@totejs/walletkit](https://github.com/node-real/walletkit) as the component
+for connecting the wallet.
+
+<UploadKitExample />
+
+## How to use
+
+### 1. Import @node-real/greenfield-uploadkit styles
+
+```tsx live=false
+// 👇 Import @node-real/greenfield-uploadkit styles here.
+import '@node-real/greenfield-uploadkit/styles.css';
+
+import { WagmiConfig, createConfig } from 'wagmi';
+import { chains } from './chains';
+// ...
+```
+
+### 2. Add chain configurations
+
+```tsx live=false
+import { bsc, bscTestnet } from 'wagmi/chains';
+
+export const chains = [
+  {
+    id: 5600,
+    name: 'BNB Greenfield Chain Testnet',
+    network: 'BNB Greenfield Chain Testnet',
+    nativeCurrency: {
+      name: 'BNB',
+      symbol: 'tBNB',
+      decimals: 18,
+    },
+    rpcUrls: {
+      default: {
+        http: ['https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org'],
+      },
+      public: {
+        http: ['https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org'],
+      },
+    },
+    blockExplorers: {
+      etherscan: {
+        name: `BNB Greenfield Chain Testnet Scan`,
+        url: 'https://testnet.greenfieldscan.com',
+      },
+      default: {
+        name: `BNB Greenfield Chain Testnet Scan`,
+        url: 'https://testnet.greenfieldscan.com',
+      },
+    },
+  },
+  {
+    id: 1017,
+    name: 'BNB Greenfield Chain',
+    network: 'BNB Greenfield Chain',
+    nativeCurrency: {
+      name: 'BNB',
+      symbol: 'BNB',
+      decimals: 18,
+    },
+    rpcUrls: {
+      default: {
+        http: ['https://greenfield-chain.bnbchain.org'],
+      },
+      public: {
+        http: ['https://greenfield-chain.bnbchain.org'],
+      },
+    },
+    blockExplorers: {
+      etherscan: {
+        name: `BNB Greenfield Mainnet Scan`,
+        url: 'https://greenfieldscan.com',
+      },
+      default: {
+        name: `BNB Greenfield Mainnet Scan`,
+        url: 'https://greenfieldscan.com',
+      },
+    },
+  },
+  bscTestnet,
+  bsc,
+];
+```
+
+### 3. Add client configurations
+
+```tsx live=false
+import { Client } from '@bnb-chain/greenfield-js-sdk';
+
+const GRPC_URL = 'https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org';
+
+const GREEN_CHAIN_ID = 5600;
+
+export const client = Client.create(GRPC_URL, String(GREEN_CHAIN_ID), {
+  zkCryptoUrl: 'https://unpkg.com/@bnb-chain/greenfield-zk-crypto@0.0.3/dist/node/zk-crypto.wasm',
+});
+```
+
+### 3. Add @totejs/walletkit as the wallet connection library, or connect with rainbowkit or wamgi.
+
+```bash
+npm install @totejs/walletkit
+```
+
+### 4. Add WagmiConfig, WalletKitProvider and UploadKitProvider to your project.
+
+```tsx live=false
+import { WagmiConfig, createConfig } from 'wagmi';
+import {
+  SwitchNetworkModal,
+  WalletKitButton,
+  WalletKitOptions,
+  WalletKitProvider,
+  getDefaultConfig,
+} from '@totejs/walletkit';
+import { trustWallet, metaMask, walletConnect } from '@totejs/walletkit/wallets';
+import {
+  UploadKitButton,
+  UploadKitOptions,
+  UploadKitProvider,
+} from '@node-real/greenfield-uploadkit';
+import { chains } from './chains';
+import { client } from './client';
+
+import '@node-real/greenfield-uploadkit/styles.css';
+import '@totejs/walletkit/styles.css';
+
+const config = createConfig(
+  getDefaultConfig({
+    autoConnect: true,
+    appName: 'WalletKit',
+
+    /* WC 2.0 requires a project ID (get one here: https://cloud.walletconnect.com/sign-in) */
+    walletConnectProjectId: '22d482af814af0b8d5ba3d394a28c5fc',
+
+    chains,
+    connectors: [trustWallet(), metaMask(), walletConnect()],
+  }),
+);
+
+const options: WalletKitOptions = {
+  initialChainId: 5600,
+};
+
+const uploadKitOptions: UploadKitOptions = {
+  client: client,
+};
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <WagmiConfig config={config}>
+      <WalletKitProvider options={options} mode="light">
+        <UploadKitProvider options={uploadKitOptions} mode="light">
+          <Component {...pageProps} />
+          <WalletKitButton />
+          <div style={{ height: 16 }}></div>
+          <UploadKitButton />
+          <SwitchNetworkModal />
+        </UploadKitProvider>
+      </WalletKitProvider>
+    </WagmiConfig>
+  );
+}
+```
+
+## useUploadModal
+
+Use the useUploadModal hook to show/dismiss the specific modal. It must be used within a
+`<UploadKitProvider>`.
+
+- `onOpenDragModal`: Open the drag files modal.
+- `onOpenUploadModal`: Open the upload tasks modal.
+- `onCloseModal`: Close the upload Modal.
+
+## useUploadQueue
+
+Use the useUploadQueue hook to get details about the upload task queue.
+
+- `uploadQueue`: Details of the upload task queue.
+
+## useTaskManagementButton
+
+Use the useTaskManagementButton hook to show/dismiss the bottom -right button.
+
+- `isShow`: Indicates whether the button is displayed.
+- `onShow`: Function to display the button.
+- `onHide`: Function to hide the button.
+
+## Handle upload errors by yourself
+
+```tsx live=false
+<UploadKitProvider
+  options={{
+    onError(errorMsg) {
+      console.log('errorMsg', errorMsg);
+    },
+  }}
+>
+  <Example />
+</UploadKitProvider>
+```
+
+## Customizing theme
+
+```tsx live=false
+type ThemeMode = 'auto' | 'dark' | 'light';
+type ThemeVariant = 'base';
+
+<UploadKitProvider options={options} theme="base" mode="light" customTheme={customTheme}>
+  <Example />
+</UploadKitProvider>;
+```
+
+An example for custom theme as follows, or you can configure themes in both light and dark modes,
+for more details, please click [here]().
+
+```tsx live=false
+export const customTheme = {
+  light: {
+    colors: {
+      text: '#1E2026',
+      textSecondary: '#76808F',
+      error: '#D9304E',
+      errorActive: '#B82942',
+      border: '#E6E8EA',
+      disabled: '#AEB4BC',
+      blue: '#1184EE',
+
+      bgNormal: '#fff',
+      bgBottom: '#F5F5F5',
+
+      modalBackground: '#fff',
+      modalOverlay: 'rgba(0, 0, 0, 0.5)',
+
+      totalFeeLabel: '#474D57',
+
+      buttonText: '#fff',
+      buttonTextHover: 'var(--uk-colors-text)',
+      buttonBackground: '#1E2026',
+      buttonBackgroundHover: rgba('#F0B90B', 0.1),
+
+      uploadKitButtonText: 'var(--uk-colors-text)',
+      uploadKitButtonTextHover: 'var(--uk-colors-text)',
+      uploadKitButtonBackground: '#f5f5f5',
+      uploadKitButtonBackgroundHover: '#e6e8ea',
+
+      navButtonText: 'var(--uk-colors-textSecondary)',
+      navButtonBackgroundHover: 'var(--uk-colors-border)',
+
+      toastBackground: 'var(--uk-colors-modalBackground)',
+    },
+    shadows: {
+      toast: '0px 4px 24px rgba(0, 0, 0, 0.08)',
+      button: '0px 4px 24px 0px rgba(0, 0, 0, 0.08)',
+    },
+    radii,
+    zIndices,
+  },
+  dark: {
+    colors: {
+      text: '#fff',
+      textSecondary: '#76808F',
+      error: '#D9304E',
+      errorActive: '#B82942',
+      border: '#2e323a',
+      disabled: '#5E6673',
+      blue: '#1184EE',
+
+      bgBottom: '#000',
+      bgNormal: '#1E2026',
+
+      modalBackground: '#1E2026',
+      modalOverlay: rgba('#000', 0.5),
+
+      totalFeeLabel: '#fff',
+      buttonText: 'var(--uk-colors-text)',
+      buttonTextHover: 'var(--uk-colors-text)',
+      buttonBackground: '#14151a',
+      buttonBackgroundHover: rgba('#F0B90B', 0.1),
+
+      uploadKitButtonText: 'var(--uk-colors-text)',
+      uploadKitButtonTextHover: 'var(--uk-colors-text)',
+      uploadKitButtonBackground: '#2b2f36',
+      uploadKitButtonBackgroundHover: '#2e323a',
+
+      navButtonText: 'var(--uk-colors-textSecondary)',
+      navButtonBackgroundHover: 'var(--uk-colors-border)',
+
+      toastBackground: 'var(--uk-colors-modalBackground)',
+    },
+    shadows: {
+      toast: '0px 4px 24px rgba(0, 0, 0, 0.08)',
+      button: '0px 4px 24px 0px rgba(0, 0, 0, 0.08)',
+    },
+    radii,
+    zIndices,
+  },
+};
+```
+
+## Type definitions
+
+### 1. UploadKitProviderProps
+
+```tsx live=false
+export interface UploadKitProviderProps {
+  options: UploadKitOptions;
+  children: React.ReactNode;
+  theme?: ThemeVariant;
+  mode?: ThemeMode;
+  customTheme?: CustomTheme;
+}
+```
+
+### 2. UploadKitOptions
+
+```tsx live=false
+export interface UploadKitOptions {
+  client: Client;
+  seedString?: string;
+  checksumFn?: (file: File) => Promise<string[]>;
+  bucketName?: string;
+  sp?: Sp;
+  visibility?: keyof typeof VisibilityType;
+  maxObjectSize?: number;
+  maxObjectCount?: number;
+  taskManagementButton?: boolean;
+  closeModalAfterConnected?: boolean;
+  closeModalOnEsc?: boolean;
+  closeModalOnOverlayClick?: boolean;
+  onError?: (errorMsg: string) => void;
+}
+```

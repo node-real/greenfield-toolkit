@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UploadKit Test Demo</title>
+    <script>
+      (function () {
+        try {
+          const isMobile =
+            /android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+          if (!isMobile && window.ethereum && window.ethereum.isMetaMask && window.trustwallet) {
+            const originalEthereum = window.ethereum;
+
+            Object.defineProperty(window, 'ethereum', {
+              enumerable: true,
+              configurable: true,
+              set(v) {
+                if (v.isTrust || v.isTrustWallet) return;
+                this.value = v;
+              },
+              get() {
+                return this.value ?? originalEthereum;
+              },
+            });
+          }
+        } catch (err) {
+          console.error('[ethereum script]', err);
+        }
+      })();
+    </script>
+    <script type="module">
+      import process from 'process';
+      import EventEmitter from 'events';
+      import { Buffer } from 'buffer';
+      window.Buffer = Buffer;
+      window.process = process;
+      window.EventEmitter = EventEmitter;
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>
