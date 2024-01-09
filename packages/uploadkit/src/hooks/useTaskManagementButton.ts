@@ -1,5 +1,8 @@
 import { useUpload } from '@/components/UploadProvider';
 
+/**
+ * useTaskManagementButton for display/hide the task management button.
+ */
 export const useTaskManagementButton = () => {
   const {
     state: { taskManagement },

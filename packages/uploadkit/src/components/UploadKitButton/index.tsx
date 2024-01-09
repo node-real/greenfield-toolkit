@@ -1,14 +1,18 @@
 import { ButtonProps, Button } from '@/base/components/Button';
 import { useIsMounted } from '@/base/hooks/useIsMounted';
-import { useModal, cx } from '@/index';
+import { cx } from '@/index';
 import React, { useCallback } from 'react';
 import { clsUploadKitButton } from './styles.css';
 import { useRouter } from '../RouteProvider/context';
 import { routes } from '../RouteProvider';
 import { UploadQueueStatus, useUploadQueueStatus } from '@/hooks/useUploadQueueStatus';
+import { useModal } from '../ModalProvider/context';
 
 export type UploadKitButtonProps = ButtonProps;
 
+/**
+ * UploadKitButton is the button that trigger the UploadKit modal.
+ */
 export const UploadKitButton = React.forwardRef((props: UploadKitButtonProps, ref: any) => {
   const { className, onClick, children, ...restProps } = props;
   const { onOpen } = useModal();

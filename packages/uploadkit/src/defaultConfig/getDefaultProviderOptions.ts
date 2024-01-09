@@ -15,7 +15,6 @@ export function getDefaultProviderOptions(options: UploadKitOptions) {
 
     taskManagementButton: true,
 
-    closeModalAfterConnected: true,
     closeModalOnEsc: true,
     closeModalOnOverlayClick: true,
 

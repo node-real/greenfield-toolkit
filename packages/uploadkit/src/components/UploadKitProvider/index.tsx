@@ -21,6 +21,9 @@ export interface UploadKitProviderProps {
   customTheme?: CustomTheme;
 }
 
+/**
+ * UploadKitProvider is the root component of the UploadKit library.
+ */
 export const UploadKitProvider = (props: UploadKitProviderProps) => {
   const { children, theme = 'base', mode = 'light', options, customTheme } = props;
 

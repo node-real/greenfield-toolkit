@@ -85,7 +85,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ## Contributing
 
-Please follow our [UploadKit Contribution Guide](./CONTRIBUTING.md).
+Please follow our [Greenfield UploadKit Contribution Guide](./CONTRIBUTING.md).
 
 ## License
 

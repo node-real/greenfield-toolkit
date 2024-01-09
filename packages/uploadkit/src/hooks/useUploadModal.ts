@@ -2,6 +2,9 @@ import { useModal } from '@/components/ModalProvider/context';
 import { routes } from '@/components/RouteProvider';
 import { useRouter } from '@/components/RouteProvider/context';
 
+/**
+ * useUploadModal for open/close upload modal.
+ */
 export const useUploadModal = () => {
   const router = useRouter();
   const { onOpen, onClose } = useModal();
