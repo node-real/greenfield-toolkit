@@ -2,8 +2,6 @@
 export * from './components/UploadKitButton';
 export * from './components/UploadKitProvider/context';
 export * from './components/UploadKitProvider';
-export { useUpload } from './components/UploadProvider/index';
-export { useModal } from './components/ModalProvider/context';
 
 export * from './hooks/useUploadQueue';
 export * from './hooks/useUploadModal';

@@ -14,6 +14,9 @@ import BigNumber from 'bignumber.js';
 import { WaitObject } from '@/components/UploadProvider/types';
 import { getStoreNetflowRate } from '@/utils/fee';
 
+/**
+ * useTotalFee returns the total fee of the upload queue.
+ */
 export function useTotalFee() {
   const {
     state: { waitQueue },

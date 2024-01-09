@@ -16,7 +16,7 @@ export const GlobalTasks = () => {
   const { state, dispatch } = useUpload();
   const { address } = useAccount();
   const {
-    options: { client },
+    options: { client, checksumFn },
   } = useUploadKitContext();
   const { uploadQueue, tmpAccount, selectedSp, seedString } = state;
   const rs = useSingleton(ReedSolomon);
@@ -57,7 +57,8 @@ export const GlobalTasks = () => {
       },
     });
     const fileBytes = await hashTask.waitObject.file.arrayBuffer();
-    const checkSumRes = rs.encode(new Uint8Array(fileBytes));
+    const calChecksumFn = typeof checksumFn === 'function' ? checksumFn : rs.encode;
+    const checkSumRes = await calChecksumFn(new Uint8Array(fileBytes));
     if (!checkSumRes) {
       return dispatch({
         type: 'SET_UPLOAD_TASK_ERROR_MSG',
