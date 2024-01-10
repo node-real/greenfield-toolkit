@@ -4,6 +4,7 @@ const radii = {
   common: '8px',
   modal: '12px',
 
+  borderRadius: '8px',
   navButton: '4px',
   button: 'var(--uk-radii-common)',
   uploadKitButton: 'var(--uk-radii-common)',

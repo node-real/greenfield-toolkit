@@ -3,7 +3,7 @@ import { CloseIcon } from '@/base/icons/CloseIcon';
 import { UploadIcon } from '@/base/icons/UploadIcon';
 import { SuccessIcon } from '@/base/icons/SuccessIcon';
 import { AlertIcon } from '@/base/icons/AlertIcon';
-import { cx } from '@/base/utils/css';
+import { cssVar, cx } from '@/base/utils/css';
 import {
   clsTaskManagementButton,
   clsTaskManagementButtonContent,
@@ -50,7 +50,7 @@ export function TaskManagementButton() {
         onClick={onButtonClick}
         className={cx('uk-task-management-button-content', clsTaskManagementButtonContent)}
       >
-        {status === 1 && <UploadIcon />}
+        {status === 1 && <UploadIcon color={cssVar('blue')} />}
         {status === 2 && <SuccessIcon />}
         {status === 3 && <AlertIcon color="#D9304E" />}
         <Box className={cx('uk-task-management-button-text', clsTaskManagementButtonText)}>

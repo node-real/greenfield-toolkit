@@ -23,6 +23,7 @@ export const clsDragAreaInputDisable = style({
 export const clsDragArea = style({
   width: '100%',
   border: `1px dashed ${cssVar('disabled')}`,
+  borderRadius: cssVar('borderRadius', 'radii'),
   height: 350,
   display: 'flex',
   gap: 8,

@@ -1,9 +1,10 @@
 import { TxResponse } from '@bnb-chain/greenfield-js-sdk';
 import { ErrorResponse, UNKNOWN_ERROR, broadcastFault, simulateFault } from './error';
 import { Client } from '@bnb-chain/greenfield-js-sdk';
-import { DeliverResponse, resolve } from './common';
+import { DeliverTxResponse, resolve } from './common';
 import { signTypedDataCallback } from './wallet';
 import { TTmpAccount } from '@/components/UploadProvider/types';
+import { Connector } from 'wagmi';
 
 /**
  * ECDSA Signature
@@ -32,7 +33,7 @@ export const broadcastMulTxs = async ({
   txs: TxResponse[];
   address: `0x${string}`;
   client: Client;
-  connector: any;
+  connector: Connector;
 }): Promise<ErrorResponse | [boolean, null]> => {
   const multiTxs = await client.txClient.multiTx(txs);
   const [simulateInfo, simulateError] = await multiTxs
@@ -64,7 +65,7 @@ export const broadcastTmpTx = async (
   tx: TxResponse,
   tmpAccount: TTmpAccount,
   address: `0x${string}`,
-): Promise<ErrorResponse | [DeliverResponse, null]> => {
+): Promise<ErrorResponse | [DeliverTxResponse, null]> => {
   if (!tx) {
     return [null, 'tx is null'];
   }
@@ -95,8 +96,8 @@ export const broadcastTmpTx = async (
 export const broadcastTx = async (
   tx: TxResponse,
   address: `0x${string}`,
-  connector: any,
-): Promise<ErrorResponse | [DeliverResponse, null]> => {
+  connector: Connector,
+): Promise<ErrorResponse | [DeliverTxResponse, null]> => {
   if (!tx) {
     return [null, 'tx is null'];
   }
