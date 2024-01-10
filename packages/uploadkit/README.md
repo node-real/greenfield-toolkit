@@ -5,7 +5,7 @@ Greenfield UploadKit is a React component library for easily uploading objects t
 ## Features
 
 - 💡 Typescript — Get types straight out of the box.
-- 🌱 Ecosystem Standards — Built on top of [@bnb-chain/greenfield-js-sdk](https://github.com/bnb-chain/greenfield-js-sdk/tree/main/packages/js-sdk), [wagmi](https://wagmi.sh/), and [viem](https://viem.sh/).
+- 🌱 Ecosystem Standards — Built on top of [@bnb-chain/greenfield-js-sdk](https://github.com/bnb-chain/greenfield-js-sdk/tree/main/packages/js-sdk), [wagmi](https://wagmi.sh/) and [viem](https://viem.sh/).
 - 🎨 Customization — Easily customizing themes.
 
 ## Documentation
@@ -85,7 +85,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ## Contributing
 
-Please follow our [UploadKit Contribution Guide](./CONTRIBUTING.md).
+Please follow our [Greenfield UploadKit Contribution Guide](./CONTRIBUTING.md).
 
 ## License
 
