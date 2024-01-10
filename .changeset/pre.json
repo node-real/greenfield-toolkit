@@ -8,5 +8,7 @@
     "@node-real/greenfield-uploadkit": "0.0.1",
     "website": "0.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "short-eggs-burn"
+  ]
 }
