@@ -1,5 +1,11 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.3-alpha.0
+
+### Patch Changes
+
+- d567e88: fix: scroll style on edge
+
 ## 0.0.2
 
 ### Patch Changes

@@ -8,5 +8,7 @@
     "@node-real/greenfield-uploadkit": "0.0.2",
     "website": "0.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "thin-mirrors-warn"
+  ]
 }
