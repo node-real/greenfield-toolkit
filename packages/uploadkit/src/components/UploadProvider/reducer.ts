@@ -122,9 +122,7 @@ export const reducer: Reducer = (state, action) => {
       const task = queue.find((item) => item.id === id);
       if (!task) return state; // Return state instead of undefined
       task.progress = progress;
-      if (progress === 100) {
-        task.status = 'FINISH';
-      }
+
       return {
         ...state,
         uploadQueue: queue,

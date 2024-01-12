@@ -174,7 +174,7 @@ export const GlobalTasks = () => {
     axios
       .put(url, task.waitObject.file, {
         async onUploadProgress(progressEvent) {
-          const progress = Math.round(
+          const progress = Math.floor(
             (progressEvent.loaded / (progressEvent.total as number)) * 100,
           );
           dispatch({
@@ -196,6 +196,15 @@ export const GlobalTasks = () => {
           'x-gnfd-txn-hash': headers.get('x-gnfd-txn-hash'),
           'x-gnfd-user-address': headers.get('x-gnfd-user-address'),
         },
+      })
+      .then(() => {
+        dispatch({
+          type: 'SET_UPLOAD_TASK_STATUS',
+          payload: {
+            id: task.id,
+            status: 'FINISH',
+          },
+        });
       })
       .catch(async (e: Response | any) => {
         console.log('upload error', e);
