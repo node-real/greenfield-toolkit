@@ -1,5 +1,11 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.3-alpha.1
+
+### Patch Changes
+
+- c9b17af: fix: upload finish error
+
 ## 0.0.3-alpha.0
 
 ### Patch Changes
