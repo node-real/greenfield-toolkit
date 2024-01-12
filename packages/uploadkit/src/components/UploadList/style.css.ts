@@ -31,8 +31,8 @@ export const clsWaitItemIconSm = style({
 export const clsWaitItemContent = style({
   display: 'flex',
   flexDirection: 'column',
-  flex: 1,
   textAlign: 'left',
+  width: 'calc(100% - 100px)',
 });
 export const clsWaitItemName = style({
   fontWeight: 600,

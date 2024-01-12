@@ -1,0 +1,15 @@
+{
+  "mode": "exit",
+  "tag": "alpha",
+  "initialVersions": {
+    "example-nextjs-with-rainbowkit": "0.0.1",
+    "example-nextjs-with-walletkit": "0.0.1",
+    "example-vite-with-walletkit": "0.0.1",
+    "@node-real/greenfield-uploadkit": "0.0.2",
+    "website": "0.0.1"
+  },
+  "changesets": [
+    "five-turtles-attack",
+    "thin-mirrors-warn"
+  ]
+}
