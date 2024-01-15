@@ -1,5 +1,12 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.3
+
+### Patch Changes
+
+- 21b0b97: fix: upload finish error
+- 21b0b97: fix: scroll style on edge
+
 ## 0.0.3-alpha.1
 
 ### Patch Changes
