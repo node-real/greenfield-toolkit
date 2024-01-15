@@ -10,15 +10,15 @@ Greenfield UploadKit is a React component library for easily uploading objects t
 
 ## Documentation
 
-For full documentation, visit [here](https://node-real.github.io/greenfield-uploadkit).
+For full documentation, visit [here](https://node-real.github.io/greenfield-toolkit).
 
 ## Examples
 
 The following examples are provided in the [examples](./examples/) folder of this repo.
 
-- [nextjs-with-wallkit](./examples/nextjs-with-walletkit/)
-- [nextjs-with-rainbowkit](./examples/nextjs-with-rainbowkit/)
-- [vite-with-walletkit](./examples/vite-with-walletkit/)
+- [with-nextjs-wallkit](./examples/uploadkit-with-nextjs-walletkit/)
+- [with-nextjs-rainbowkit](./examples/uploadkit-with-nextjs-rainbowkit/)
+- [with-nextjs-walletkit](./examples/uploadkit-with-vite-walletkit/)
 
 ## Installation
 
