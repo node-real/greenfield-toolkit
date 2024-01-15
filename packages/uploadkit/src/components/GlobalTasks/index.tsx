@@ -57,8 +57,10 @@ export const GlobalTasks = () => {
       },
     });
     const fileBytes = await hashTask.waitObject.file.arrayBuffer();
-    const calChecksumFn = typeof checksumFn === 'function' ? checksumFn : rs.encode;
-    const checkSumRes = await calChecksumFn(new Uint8Array(fileBytes));
+    const checkSumRes =
+      typeof checksumFn === 'function'
+        ? await checksumFn(new Uint8Array(fileBytes))
+        : await rs.encode(new Uint8Array(fileBytes));
     if (!checkSumRes) {
       return dispatch({
         type: 'SET_UPLOAD_TASK_ERROR_MSG',
