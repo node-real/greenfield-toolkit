@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     name: deploy docs
-    if: github.repository == 'node-real/greenfield-uploadkit'
+    if: github.repository == 'node-real/greenfield-toolkit'
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
@@ -24,15 +24,15 @@ jobs:
 
       - name: Redirect
         run: |
-          mkdir -p ./website/dist/website/dist
-          cat << EOF > "./website/dist/website/dist/index.html"
-            <script>window.location.href='https://github.com/node-real/greenfield-uploadkit</script>
+          mkdir -p ./docs/dist/docs/dist
+          cat << EOF > "./docs/dist/docs/dist/index.html"
+            <script>window.location.href='https://github.com/node-real/greenfield-toolkit/packages/uploadkit</script>
           EOF
 
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./website/dist
+          folder: ./docs/dist
           branch: 'docs'
           clean: true
           force: true

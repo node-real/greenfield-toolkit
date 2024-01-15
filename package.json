@@ -1,20 +1,19 @@
 {
-  "name": "greenfield-uploadkit",
+  "name": "greenfield-toolkit",
   "version": "0.0.1",
   "author": "node-real",
   "packageManager": "pnpm@8.9.2",
-  "description": "Greenfield UploadKit is a React component library for easily uploading objects to BNB Greenfield.",
+  "description": "Greenfield Toolkit offers easy-to-use tools for developers to effortlessly start building on BNB Greenfield.",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
     "lint": "pnpm eslint .",
-    "dev": "pnpm --F @node-real/greenfield-uploadkit dev",
-    "build": "pnpm --F @node-real/greenfield-uploadkit build",
-    "dev:docs": "pnpm --F @node-real/greenfield-uploadkit build:watch & pnpm --F website dev",
-    "build:docs": "pnpm --F @node-real/greenfield-uploadkit build && pnpm --F website build",
+    "build": "pnpm run -F \"./packages/**\" -r build",
+    "dev:docs": "pnpm --F @node-real/greenfield-uploadkit build:watch & pnpm --F docs dev",
+    "build:docs": "pnpm --F @node-real/greenfield-uploadkit build && pnpm --F docs build",
     "pre:enter": "pnpm changeset pre enter alpha",
     "pre:exit": "pnpm changeset pre exit",
-    "ci:version": "pnpm changeset version && cp README.md packages/uploadkit/README.md",
+    "ci:version": "pnpm changeset version",
     "ci:publish": "pnpm changeset publish"
   },
   "devDependencies": {

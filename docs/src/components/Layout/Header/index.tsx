@@ -23,10 +23,10 @@ export function Header() {
         borderColor="readable.border"
         px={16}
       >
-        <Heading fontSize={20}>Greenfield UploadKit</Heading>
+        <Heading fontSize={20}>Greenfield Toolkit</Heading>
         <HStack spacing={16}>
           <Link
-            href="https://github.com/node-real/greenfield-uploadkit/tree/main"
+            href="https://github.com/node-real/greenfield-toolkit/tree/main"
             isExternal
             display="inline-flex"
           >

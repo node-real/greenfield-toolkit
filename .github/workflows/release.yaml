@@ -10,7 +10,7 @@ on:
 jobs:
   release:
     name: release
-    if: github.repository == 'node-real/greenfield-uploadkit'
+    if: github.repository == 'node-real/greenfield-toolkit'
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
