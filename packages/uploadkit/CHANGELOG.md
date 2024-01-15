@@ -1,5 +1,11 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.5-alpha.1
+
+### Patch Changes
+
+- 6d641a1: fix: peerdep import error
+
 ## 0.0.5-alpha.0
 
 ### Patch Changes
