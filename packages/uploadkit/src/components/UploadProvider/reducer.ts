@@ -1,30 +1,35 @@
-import { Reducer, UploadState, TTmpAccount, UploadObject } from './types';
+import { Reducer, UploadState, TTmpAccount, UploadObject, Sp } from './types';
 
 export const initialState: UploadState = {
   loading: false,
   taskManagement: true,
   seedString: '',
+  selectedSp: {} as Sp,
   waitQueue: [],
   uploadQueue: [],
   tmpAccount: {} as TTmpAccount,
 };
 
 export const reducer: Reducer = (state, action) => {
+  // Ensure the initial state is set if it's not available
   state = state || initialState;
 
   switch (action.type) {
+    // Set loading state
     case 'SET_IS_LOADING': {
       return {
         ...state,
         loading: action.payload,
       };
     }
+    // Set task management button display state
     case 'SET_TASK_MANAGEMENT_DISPLAY': {
       return {
         ...state,
         taskManagement: action.payload,
       };
     }
+    // Set seedString from offchainAuth
     case 'SET_SEED_STRING': {
       return {
         ...state,
@@ -43,6 +48,7 @@ export const reducer: Reducer = (state, action) => {
         tmpAccount: action.payload,
       };
     }
+    // Add items to waitQueue
     case 'SET_WAIT_QUEUE': {
       return {
         ...state,
@@ -55,27 +61,29 @@ export const reducer: Reducer = (state, action) => {
         waitQueue: [],
       };
     }
+    // Remove specific item from waitQueue
     case 'REMOVE_WAIT_TASK': {
       return {
         ...state,
         waitQueue: state.waitQueue.filter((item) => item.id !== action.payload.id),
       };
     }
+    // Set uploadQueue based on waitQueue items
     case 'SET_UPLOAD_QUEUE': {
-      const { payload } = action;
+      const { bucketName, spAddress, visibility } = action.payload;
       const waitQueue = state.waitQueue;
       const uploadTasks = waitQueue.map((task) => {
         const uploadTask: UploadObject = {
-          bucketName: payload.bucketName,
+          bucketName: bucketName,
           prefixFolders: [''],
-          spAddress: payload.spAddress,
+          spAddress: spAddress,
           id: task.id,
           waitObject: task,
           msg: '',
           status: 'WAIT',
           progress: 0,
           checksum: [],
-          visibility: payload.visibility,
+          visibility: visibility,
           createHash: '',
         };
         return uploadTask;
@@ -92,6 +100,7 @@ export const reducer: Reducer = (state, action) => {
         uploadQueue: [],
       };
     }
+    // Update uploadQueue item with checksum
     case 'SET_UPLOAD_TASK_CHECKSUM': {
       const { id, checksum } = action.payload;
       const queue = state.uploadQueue;
@@ -101,9 +110,10 @@ export const reducer: Reducer = (state, action) => {
       task.checksum = checksum;
       return {
         ...state,
-        uploadQueue: queue,
+        uploadQueue: [...queue],
       };
     }
+    // Update uploadQueue item with createHash
     case 'SET_UPLOAD_TASK_CREATE_HASH': {
       const { id, createHash } = action.payload;
       const queue = state.uploadQueue;
@@ -113,9 +123,10 @@ export const reducer: Reducer = (state, action) => {
       task.status = task.status !== 'CANCEL' ? 'SIGNED' : 'CANCEL';
       return {
         ...state,
-        uploadQueue: queue,
+        uploadQueue: [...queue],
       };
     }
+    // Update uploadQueue item with progress
     case 'SET_UPLOAD_TASK_PROGRESS': {
       const { id, progress } = action.payload;
       const queue = state.uploadQueue;
@@ -125,9 +136,10 @@ export const reducer: Reducer = (state, action) => {
 
       return {
         ...state,
-        uploadQueue: queue,
+        uploadQueue: [...queue],
       };
     }
+    // Update uploadQueue item with error message
     case 'SET_UPLOAD_TASK_ERROR_MSG': {
       const { id, msg } = action.payload;
       const queue = state.uploadQueue;
@@ -137,9 +149,10 @@ export const reducer: Reducer = (state, action) => {
       task.msg = msg;
       return {
         ...state,
-        uploadQueue: queue,
+        uploadQueue: [...queue],
       };
     }
+    // Update uploadQueue item with status
     case 'SET_UPLOAD_TASK_STATUS': {
       const { id, status } = action.payload;
       const queue = state.uploadQueue;
@@ -148,9 +161,11 @@ export const reducer: Reducer = (state, action) => {
       task.status = status;
       return {
         ...state,
-        uploadQueue: queue,
+        uploadQueue: [...queue],
       };
     }
+
+    // Default case: return the unchanged state
     default: {
       return state;
     }

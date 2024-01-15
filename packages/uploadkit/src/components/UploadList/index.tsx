@@ -9,7 +9,6 @@ import {
   clsWaitItemContent,
   clsWaitItemDesc,
   clsWaitItemIcon,
-  clsWaitItemIconSm,
   clsWaitItemName,
   clsWaitItemStatus,
 } from './style.css';

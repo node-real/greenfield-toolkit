@@ -1,0 +1,12 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "docs": "0.0.1",
+    "uploadkit-with-nextjs-rainbowkit": "0.0.1",
+    "uploadkit-with-nextjs-walletkit": "0.0.1",
+    "uploadkit-with-vite-walletkit": "0.0.1",
+    "@node-real/greenfield-uploadkit": "0.0.4"
+  },
+  "changesets": []
+}

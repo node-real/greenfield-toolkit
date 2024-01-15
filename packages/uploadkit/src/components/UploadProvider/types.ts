@@ -9,7 +9,6 @@ export type UploadStatus =
   | 'SIGN'
   | 'SIGNED'
   | 'UPLOAD'
-  // | 'SEAL'
   | 'FINISH'
   | 'ERROR'
   | 'CANCEL';
