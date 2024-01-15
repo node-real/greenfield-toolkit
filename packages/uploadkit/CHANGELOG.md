@@ -1,5 +1,18 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.4
+
+### Patch Changes
+
+- 74fdd5c: fix: Ensure correct context in encode function
+
+## 0.0.3
+
+### Patch Changes
+
+- 21b0b97: fix: upload finish error
+- 21b0b97: fix: scroll style on edge
+
 ## 0.0.3-alpha.1
 
 ### Patch Changes

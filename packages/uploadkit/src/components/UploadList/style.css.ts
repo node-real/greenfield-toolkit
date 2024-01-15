@@ -32,7 +32,7 @@ export const clsWaitItemContent = style({
   display: 'flex',
   flexDirection: 'column',
   textAlign: 'left',
-  width: 'calc(100% - 100px)',
+  flex: 1,
 });
 export const clsWaitItemName = style({
   fontWeight: 600,

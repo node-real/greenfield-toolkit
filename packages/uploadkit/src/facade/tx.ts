@@ -6,16 +6,10 @@ import { signTypedDataCallback } from './wallet';
 import { TTmpAccount } from '@/components/UploadProvider/types';
 import { Connector } from 'wagmi';
 
-/**
- * ECDSA Signature
- */
 export type ECDSA = {
   type: 'ECDSA';
   privateKey: string;
 };
-/**
- * EDDSA Signature
- */
 export type EDDSA = {
   type: 'EDDSA';
   seed: string;
@@ -31,7 +25,7 @@ export const broadcastMulTxs = async ({
   connector,
 }: {
   txs: TxResponse[];
-  address: `0x${string}`;
+  address: string;
   client: Client;
   connector: Connector;
 }): Promise<ErrorResponse | [boolean, null]> => {
@@ -64,7 +58,7 @@ export const broadcastMulTxs = async ({
 export const broadcastTmpTx = async (
   tx: TxResponse,
   tmpAccount: TTmpAccount,
-  address: `0x${string}`,
+  address: string,
 ): Promise<ErrorResponse | [DeliverTxResponse, null]> => {
   if (!tx) {
     return [null, 'tx is null'];

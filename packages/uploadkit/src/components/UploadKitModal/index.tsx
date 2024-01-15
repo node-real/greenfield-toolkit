@@ -2,7 +2,6 @@ import { Modal } from '@/base/components/Modal';
 import { useIsMounted } from '@/base/hooks/useIsMounted';
 import { useModal } from '../ModalProvider/context';
 import { useRouter } from '../RouteProvider/context';
-import { TaskManagementButton } from '../TaskManagementButton';
 
 export function UploadKitModal() {
   const { isOpen, onClose, closeOnEsc, closeOnOverlayClick } = useModal();
