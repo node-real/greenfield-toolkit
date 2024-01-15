@@ -148,16 +148,16 @@ importers:
   examples/uploadkit-with-nextjs-rainbowkit:
     dependencies:
       '@bnb-chain/greenfield-cosmos-types':
-        specifier: 0.4.0-alpha.30
-        version: 0.4.0-alpha.30
+        specifier: latest
+        version: 0.4.0
       '@bnb-chain/greenfield-js-sdk':
-        specifier: 1.2.0
+        specifier: latest
         version: 1.2.0
       '@bnb-chain/reed-solomon':
-        specifier: ^1.1.3
+        specifier: latest
         version: 1.1.3
       '@node-real/greenfield-uploadkit':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../packages/uploadkit
       '@rainbow-me/rainbowkit':
         specifier: ^1.3.3
@@ -200,16 +200,16 @@ importers:
   examples/uploadkit-with-nextjs-walletkit:
     dependencies:
       '@bnb-chain/greenfield-cosmos-types':
-        specifier: 0.4.0-alpha.30
-        version: 0.4.0-alpha.30
+        specifier: latest
+        version: 0.4.0
       '@bnb-chain/greenfield-js-sdk':
-        specifier: 1.2.0
+        specifier: latest
         version: 1.2.0
       '@bnb-chain/reed-solomon':
-        specifier: ^1.1.3
+        specifier: latest
         version: 1.1.3
       '@node-real/greenfield-uploadkit':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../packages/uploadkit
       axios:
         specifier: ^1.6.3
@@ -246,16 +246,16 @@ importers:
   examples/uploadkit-with-vite-walletkit:
     dependencies:
       '@bnb-chain/greenfield-cosmos-types':
-        specifier: 0.4.0-alpha.30
-        version: 0.4.0-alpha.30
+        specifier: latest
+        version: 0.4.0
       '@bnb-chain/greenfield-js-sdk':
-        specifier: 1.2.0
+        specifier: latest
         version: 1.2.0
       '@bnb-chain/reed-solomon':
-        specifier: ^1.1.3
+        specifier: latest
         version: 1.1.3
       '@node-real/greenfield-uploadkit':
-        specifier: workspace:*
+        specifier: latest
         version: link:../../packages/uploadkit
       '@totejs/walletkit':
         specifier: ^1.0.8
@@ -637,6 +637,13 @@ packages:
       '@babel/helper-string-parser': 7.23.4
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+
+  /@bnb-chain/greenfield-cosmos-types@0.4.0:
+    resolution: {integrity: sha512-E6biyuWjVSzJ8F5lCRQsc6LsM7bJAAPZCjuUSmDZnGoQSfA+GrRXVJ+as+aVeePB4+XmP2pxMrSoh0ajzNRpPQ==}
+    dependencies:
+      long: 4.0.0
+      protobufjs: 6.11.4
+    dev: false
 
   /@bnb-chain/greenfield-cosmos-types@0.4.0-alpha.30:
     resolution: {integrity: sha512-nYThWPZHfq/bDMEu+Sw9cMMqgTk4NEg+PH9GkvN2OMgpo8QuCDy3Eh4C1g6lJy0BFv+ilethoPmKjSeEwa1m8g==}
