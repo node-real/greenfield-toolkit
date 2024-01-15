@@ -1,6 +1,6 @@
-# Greenfield UploadKit Contribution Guide
+# Greenfield Toolkit Contribution Guide
 
-Thanks for your interest in contributing to Greenfield UploadKit! Please take a moment to review this document before submitting a pull request.
+Thanks for your interest in contributing to Greenfield Toolkit! Please take a moment to review this document before submitting a pull request.
 
 ## Prerequisites
 
@@ -12,11 +12,11 @@ This project relies on [`nodejs`](https://nodejs.org/en), and uses [`pnpm`](http
 Then simply clone the repository and enter the directory:
 
 ```sh
-git clone https://github.com/node-real/greenfield-uploadkit.git
-git cd greenfield-uploadkit
+git clone https://github.com/node-real/greenfield-toolkit.git
+git cd greenfield-toolkit
 ```
 
-## Development environment
+## Development environment example
 
 Install the dependencies and start the local development environment：
 
@@ -43,7 +43,7 @@ Any changes need a test, please make sure all your changes are tested before com
 
 ## Reporting a bug
 
-Just submit an issue though [github issue page](https://github.com/node-real/greenfield-uploadkit/issues).
+Just submit an issue though [github issue page](https://github.com/node-real/greenfield-toolkit/issues).
 
 ## Release notes
 
@@ -53,4 +53,4 @@ A complete development workflow like following:
 2. Make some changes, fix bugs or add new features
 3. Run `pnpm changeset` to create a new changeset
 4. Commit the code, code review is required, after code review, we can merge the code to `main` branch
-5. Then [github action](https://github.com/node-real/greenfield-uploadkit/actions) will automatically execute and create a new [release PR](https://github.com/node-real/greenfield-uploadkit/pulls), merge this PR, a new version will be released
+5. Then [github action](https://github.com/node-real/greenfield-toolkit/actions) will automatically execute and create a new [release PR](https://github.com/node-real/greenfield-toolkit/pulls), merge this PR, a new version will be released

@@ -10,9 +10,9 @@ body:
 
   - type: input
     attributes:
-      label: Greenfield UploadKit Version
-      description: What version of Greenfield UploadKit are you using?
-      placeholder: 1.0.0
+      label: Package Name & Version
+      description: What package and version are you using?
+      placeholder: '@node-real/greenfield-uploadkit@0.0.1'
     validations:
       required: true
 

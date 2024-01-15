@@ -8,9 +8,9 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "example-nextjs-with-rainbowkit",
-    "example-nextjs-with-walletkit",
-    "example-vite-with-walletkit",
-    "website"
+    "uploadkit-nextjs-with-walletkit",
+    "uploadkit-with-nextjs-rainbowkit",
+    "uploadkit-with-vite-walletkit",
+    "docs"
   ]
 }
