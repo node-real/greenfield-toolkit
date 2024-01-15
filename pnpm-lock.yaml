@@ -45,8 +45,8 @@ importers:
   docs:
     dependencies:
       '@bnb-chain/greenfield-cosmos-types':
-        specifier: 0.4.0-alpha.30
-        version: 0.4.0-alpha.30
+        specifier: 0.4.0
+        version: 0.4.0
       '@bnb-chain/greenfield-js-sdk':
         specifier: 1.2.0
         version: 1.2.0
