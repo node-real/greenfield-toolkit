@@ -1,5 +1,11 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.5-alpha.0
+
+### Patch Changes
+
+- chore: update pnpm-lock.yml
+
 ## 0.0.4
 
 ### Patch Changes

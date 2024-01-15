@@ -97,21 +97,6 @@ export const getCreateTmpAccountTx = async ({
   return [data, null];
 };
 
-export const getGasFees = async (client: Client) => {
-  return await client.gashub
-    .getMsgGasParams({
-      msgTypeUrls: [],
-      pagination: {
-        countTotal: true,
-        key: Uint8Array.from([]),
-        limit: Long.fromInt(1000),
-        offset: Long.fromInt(0),
-        reverse: false,
-      },
-    })
-    .then(resolve, commonFault);
-};
-
 export const getStoreFeeParams = async (client: Client) => {
   const now = getTimestampInSeconds();
   const [globalSpStoragePrice, { params: storageParams }, { params: paymentParams }] =

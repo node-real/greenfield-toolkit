@@ -8,5 +8,8 @@
     "uploadkit-with-vite-walletkit": "0.0.1",
     "@node-real/greenfield-uploadkit": "0.0.4"
   },
-  "changesets": ["tall-years-judge"]
+  "changesets": [
+    "hungry-swans-attend",
+    "tall-years-judge"
+  ]
 }
