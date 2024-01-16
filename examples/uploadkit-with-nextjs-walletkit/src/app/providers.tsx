@@ -1,20 +1,16 @@
-import '@totejs/walletkit/styles.css';
-import { WagmiConfig, createConfig } from 'wagmi';
+'use client';
 import { chainList } from './chains';
+import { WagmiConfig, createConfig } from 'wagmi';
 import {
-  WalletKitButton,
+  SwitchNetworkModal,
+  WalletKitOptions,
   WalletKitProvider,
   getDefaultConfig,
-  WalletKitOptions,
-  SwitchNetworkModal,
 } from '@totejs/walletkit';
 import { trustWallet, metaMask, walletConnect } from '@totejs/walletkit/wallets';
-import {
-  UploadKitButton,
-  UploadKitOptions,
-  UploadKitProvider,
-} from '@node-real/greenfield-uploadkit';
+import { UploadKitOptions, UploadKitProvider } from '@node-real/greenfield-uploadkit';
 import { client } from './client';
+
 import '@node-real/greenfield-uploadkit/styles.css';
 import '@totejs/walletkit/styles.css';
 
@@ -37,17 +33,15 @@ const options: WalletKitOptions = {
 
 const uploadOptions: UploadKitOptions = {
   client: client,
-  visibility: 'VISIBILITY_TYPE_PUBLIC_READ',
+  visibility: 'VISIBILITY_TYPE_PRIVATE',
 };
 
-export default function App() {
+export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <WagmiConfig config={config}>
       <WalletKitProvider options={options} mode="light">
         <UploadKitProvider options={uploadOptions} mode="light">
-          <WalletKitButton />
-          <div style={{ height: 16 }}></div>
-          <UploadKitButton />
+          {children}
           <SwitchNetworkModal />
         </UploadKitProvider>
       </WalletKitProvider>
