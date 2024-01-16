@@ -1,5 +1,14 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.5
+
+### Patch Changes
+
+- bfdbbfb: fix: peerdep import error
+- bfdbbfb: chore: update pnpm-lock.yml
+- bfdbbfb: fix: entry js path & nextjs example & add remix example
+- bfdbbfb: feat: opt upload process
+
 ## 0.0.5-alpha.2
 
 ### Patch Changes
