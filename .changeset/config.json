@@ -11,6 +11,7 @@
     "uploadkit-with-nextjs-walletkit",
     "uploadkit-with-nextjs-rainbowkit",
     "uploadkit-with-vite-walletkit",
+    "uploadkit-with-remix-rainbowkit",
     "docs"
   ]
 }

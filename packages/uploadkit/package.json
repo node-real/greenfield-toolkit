@@ -19,8 +19,8 @@
     "dist",
     "styles.css"
   ],
-  "main": "./dist/src/index.js",
-  "types": "./dist/src/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./styles.css": "./dist/style.css"
