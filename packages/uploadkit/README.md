@@ -16,9 +16,11 @@ For full documentation, visit [here](https://node-real.github.io/greenfield-tool
 
 The following examples are provided in the [examples](./examples/) folder of this repo.
 
-- [with-nextjs-wallkit](./examples/uploadkit-with-nextjs-walletkit/)
-- [with-nextjs-rainbowkit](./examples/uploadkit-with-nextjs-rainbowkit/)
-- [with-nextjs-walletkit](./examples/uploadkit-with-vite-walletkit/)
+- [uploadkit-with-vite-walletkit](./examples/uploadkit-with-vite-walletkit/)
+- [uploadkit-with-nextjs-walletkit](./examples/uploadkit-with-nextjs-walletkit/)
+- [uploadkit-with-nextjs-rainbowkit](./examples/uploadkit-with-nextjs-rainbowkit/)
+- [uploadkit-with-remix-rainbowkit]('./examples/uploadkit-with-remix-rainbowkit/)
+
 
 ## Installation
 

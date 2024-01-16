@@ -1,6 +1,6 @@
 import '@totejs/walletkit/styles.css';
 import { WagmiConfig, createConfig } from 'wagmi';
-import { chains } from './chains';
+import { chainList } from './chains';
 import {
   WalletKitButton,
   WalletKitProvider,
@@ -26,7 +26,7 @@ const config = createConfig(
     /* WC 2.0 requires a project ID (get one here: https://cloud.walletconnect.com/sign-in) */
     walletConnectProjectId: '22d482af814af0b8d5ba3d394a28c5fc',
 
-    chains,
+    chains: chainList,
     connectors: [trustWallet(), metaMask(), walletConnect()],
   }),
 );
@@ -48,11 +48,6 @@ export default function App() {
           <WalletKitButton />
           <div style={{ height: 16 }}></div>
           <UploadKitButton />
-          {/*
-          👇 Here's the SwitchNetworkModal
-            If the user switches to a network that is not supported by our dapp,
-            this modal will be displayed to remind the user to switch to our supported networks.
-          */}
           <SwitchNetworkModal />
         </UploadKitProvider>
       </WalletKitProvider>

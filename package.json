@@ -8,7 +8,8 @@
   "scripts": {
     "prepare": "husky install",
     "lint": "pnpm eslint .",
-    "build": "pnpm run -F \"./packages/**\" -r build",
+    "dev": "pnpm --F @node-real/greenfield-uploadkit dev",
+    "build": "pnpm --F @node-real/greenfield-uploadkit build",
     "dev:docs": "pnpm --F @node-real/greenfield-uploadkit build:watch & pnpm --F docs dev",
     "build:docs": "pnpm --F @node-real/greenfield-uploadkit build && pnpm --F docs build",
     "pre:enter": "pnpm changeset pre enter alpha",

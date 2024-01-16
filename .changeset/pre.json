@@ -1,0 +1,18 @@
+{
+  "mode": "exit",
+  "tag": "alpha",
+  "initialVersions": {
+    "docs": "0.0.1",
+    "uploadkit-with-nextjs-rainbowkit": "0.0.1",
+    "uploadkit-with-nextjs-walletkit": "0.0.1",
+    "uploadkit-with-vite-walletkit": "0.0.1",
+    "@node-real/greenfield-uploadkit": "0.0.4",
+    "uploadkit-with-remix-rainbowkit": "0.0.75"
+  },
+  "changesets": [
+    "dull-clouds-impress",
+    "hungry-swans-attend",
+    "small-poems-notice",
+    "tall-years-judge"
+  ]
+}
