@@ -6,7 +6,7 @@ import { VisibilityType } from '@bnb-chain/greenfield-cosmos-types/greenfield/st
 /**
  * UploadKitOptions is the options of the Greenfield UploadKit.
  *
- * @property {Client} client - THe Greenfield js sdk client, Reference: https://docs.bnbchain.org/greenfield-js-sdk/client/greenfield-client
+ * @property {Client} client - The Greenfield js sdk client, Reference: https://docs.bnbchain.org/greenfield-js-sdk/client/greenfield-client
  *
  * @property {string} seedString -seedString is used to authenticate yourself to the provider. If not specified, the provider will generate one.
  * @property {(data: Uint8Array) => Promise<string[]>} [checksumFn] - The function to calculate the checksum of the object. If not specified, the provider will use the default checksum function.
