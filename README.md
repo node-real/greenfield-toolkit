@@ -13,9 +13,10 @@ You can find some package documentation below:
 
 The following examples are provided in the [examples](./examples/) folder of this repo.
 
-- [uploadkit-with-nextjs-wallkit](./examples/uploadkit-with-nextjs-wallkit/)
+- [uploadkit-with-nextjs-walletkit](./examples/uploadkit-with-nextjs-walletkit/)
 - [uploadkit-with-nextjs-rainbowkit](./examples/uploadkit-with-nextjs-rainbowkit/)
-- [uploadkit-with-view-walletkit](./examples/uploadkit-with-view-walletkit/)
+- [uploadkit-with-vite-walletkit](./examples/uploadkit-with-vite-walletkit/)
+- [uploadkit-with-remix-rainbowkit](./examples/uploadkit-with-remix-rainbowkit/)
 
 ## Contributing
 

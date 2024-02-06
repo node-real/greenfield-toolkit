@@ -1,9 +1,11 @@
 # Greenfield UploadKit
 
+Greenfield UploadKit is a React component library for easily uploading objects to BNB Greenfield.
+
 ## Installation
 
 ```bash
-npm i wagmi viem @bnb-chain/greenfield-js-sdk @bnb-chain/greenfield-cosmos-types @bnb-chain/reed-solomon
+npm i wagmi viem @node-real/greenfield-uploadkit @bnb-chain/greenfield-js-sdk @bnb-chain/greenfield-cosmos-types @bnb-chain/reed-solomon
 ```
 
 - wagmi > 1.0.0
@@ -14,21 +16,27 @@ npm i wagmi viem @bnb-chain/greenfield-js-sdk @bnb-chain/greenfield-cosmos-types
 
 ## Examples
 
-- [uploadkit-with-vite-walletkit](https://github.com/node-real/greenfield-toolkit/examples/uploadkit-with-vite-walletkit)
-- [uploadkit-with-nextjs-walletkit](https://github.com/node-real/greenfield-toolkit/examples/uploadkit-with-nextjs-walletkit)
-- [uploadkit-with-nextjs-rainbowkit](https://github.com/node-real/greenfield-toolkit/examples/uploadkit-with-nextjs-rainbowkit)
-- [uploadkit-with-remix-walletkit](https://github.com/node-real/greenfield-toolkit/examples/uploadkit-with-vite-walletkit)
+Explore these examples to get started:
+
+- [uploadkit-with-nextjs-walletkit](https://github.com/node-real/greenfield-toolkit/tree/main/examples/uploadkit-with-nextjs-walletkit)
+- [uploadkit-with-nextjs-rainbowkit](https://github.com/node-real/greenfield-toolkit/tree/main/examples/uploadkit-with-nextjs-rainbowkit)
+- [uploadkit-with-vite-walletkit](https://github.com/node-real/greenfield-toolkit/tree/main/examples/uploadkit-with-vite-walletkit)
+- [uploadkit-with-remix-rainbowkit](https://github.com/node-real/greenfield-toolkit/tree/main/examples/uploadkit-with-remix-rainbowkit)
 
 ## Playground
 
-In this example, we use [@totejs/walletkit](https://github.com/node-real/walletkit) as the component
-for connecting the wallet.
+Connect your wallet and switch to the BNB Greenfield Chain Testnet to securely upload files using
+the `@node-real/greenfield-uploadkit` component.
 
 <UploadKitExample />
 
-## How to use
+## How to Configure Greenfield UploadKit?
 
-### 1. Import @node-real/greenfield-uploadkit styles
+The configuration process is identical to that of the
+[uploadkit-with-nextjs-walletkit](https://github.com/node-real/greenfield-toolkit/tree/main/examples/uploadkit-with-nextjs-walletkit)
+example. Follow the steps below:
+
+### 1. Import Styles
 
 ```tsx live=false
 // 👇 Import @node-real/greenfield-uploadkit styles here.
@@ -120,13 +128,13 @@ export const client = Client.create(GRPC_URL, String(GREEN_CHAIN_ID), {
 });
 ```
 
-### 3. Add @totejs/walletkit as the wallet connection library, or connect with rainbowkit or wamgi.
+### 4. Integrate [@totejs/walletkit](https://github.com/node-real/walletkit) as the wallet connection library, or connect with [rainbowkit](https://github.com/rainbow-me/rainbowkit)
 
 ```bash
 npm install @totejs/walletkit
 ```
 
-### 4. Add WagmiConfig, WalletKitProvider and UploadKitProvider to your project.
+### 5. Add WagmiConfig, WalletKitProvider and UploadKitProvider configuration to your project
 
 ```tsx live=false
 import { WagmiConfig, createConfig } from 'wagmi';
@@ -187,30 +195,34 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 ```
 
-## useUploadModal
+## Managing Modals and Upload Data Retrieval
 
-Use the useUploadModal hook to show/dismiss the specific modal. It must be used within a
+### Managing Object Upload Modals
+
+Use the `useUploadModal` hook to show/dismiss the specific modal. It must be used within a
 `<UploadKitProvider>`.
 
 - `onOpenDragModal`: Open the drag files modal.
 - `onOpenUploadModal`: Open the upload tasks modal.
 - `onCloseModal`: Close the upload Modal.
 
-## useUploadQueue
+### Retrieving Upload Data
 
-Use the useUploadQueue hook to get details about the upload task queue.
+Use the `useUploadQueue` hook to get details about the upload task queue.
 
 - `uploadQueue`: Details of the upload task queue.
 
-## useTaskManagementButton
+### Manage Task ManagementButton
 
-Use the useTaskManagementButton hook to show/dismiss the bottom -right button.
+Use the `useTaskManagementButton` hook to show/dismiss the bottom -right button.
 
 - `isShow`: Indicates whether the button is displayed.
 - `onShow`: Function to display the button.
 - `onHide`: Function to hide the button.
 
-## Handle upload errors by yourself
+## How to Handle Errors
+
+Handle errors by passing them to the onError callback for custom error management.
 
 ```tsx live=false
 <UploadKitProvider
@@ -226,6 +238,8 @@ Use the useTaskManagementButton hook to show/dismiss the bottom -right button.
 
 ## Customizing theme
 
+Customize the theme according to your application's design:
+
 ```tsx live=false
 type ThemeMode = 'auto' | 'dark' | 'light';
 type ThemeVariant = 'base';
@@ -236,7 +250,8 @@ type ThemeVariant = 'base';
 ```
 
 An example for custom theme as follows, or you can configure themes in both light and dark modes,
-for more details, please click [here]().
+for more details, please click
+[here](https://github.com/node-real/greenfield-toolkit/blob/main/packages/uploadkit/src/themes/base.ts).
 
 ```tsx live=false
 export const customTheme = {
@@ -324,9 +339,18 @@ export const customTheme = {
 
 ## Type definitions
 
-### 1. UploadKitProviderProps
+### 1. Props for Configuring the UploadKitProvider Component.
 
 ```tsx live=false
+/**
+ * Props for Configuring the UploadKitProvider Component.
+ *
+ * @property {UploadKitOptions} options - Configuration options for the UploadKitProvider.
+ * @property {React.ReactNode} children - The children components rendered within the UploadKitProvider.
+ * @property {ThemeVariant} [theme] - The theme variant for the UploadKitProvider.
+ * @property {ThemeMode} [mode] - The mode for the UploadKitProvider.
+ * @property {CustomTheme} [customTheme] - Custom theme settings for the UploadKitProvider.
+ */
 export interface UploadKitProviderProps {
   options: UploadKitOptions;
   children: React.ReactNode;
@@ -334,15 +358,11 @@ export interface UploadKitProviderProps {
   mode?: ThemeMode;
   customTheme?: CustomTheme;
 }
-```
 
-### 2. UploadKitOptions
-
-```tsx live=false
 /**
- * UploadKitOptions is the options of the Greenfield UploadKit.
+ * Configuration options for upload.
  *
- * @property {Client} client - THe Greenfield js sdk client, Reference: https://docs.bnbchain.org/greenfield-js-sdk/client/greenfield-client
+ * @property {Client} client - The Greenfield js sdk client, Reference: https://docs.bnbchain.org/greenfield-js-sdk/client/greenfield-client
  *
  * @property {string} seedString -seedString is used to authenticate yourself to the provider. If not specified, the provider will generate one.
  * @property {(data: Uint8Array) => Promise<string[]>} [checksumFn] - The function to calculate the checksum of the object. If not specified, the provider will use the default checksum function.

@@ -16,16 +16,16 @@ For full documentation, visit [here](https://node-real.github.io/greenfield-tool
 
 The following examples are provided in the [examples](./examples/) folder of this repo.
 
-- [uploadkit-with-vite-walletkit](./examples/uploadkit-with-vite-walletkit/)
-- [uploadkit-with-nextjs-walletkit](./examples/uploadkit-with-nextjs-walletkit/)
-- [uploadkit-with-nextjs-rainbowkit](./examples/uploadkit-with-nextjs-rainbowkit/)
-- [uploadkit-with-remix-rainbowkit]('./examples/uploadkit-with-remix-rainbowkit/)
+- [uploadkit-with-nextjs-walletkit](../../examples/uploadkit-with-nextjs-walletkit/)
+- [uploadkit-with-nextjs-rainbowkit](../../examples/uploadkit-with-nextjs-rainbowkit/)
+- [uploadkit-with-vite-walletkit](../../examples/uploadkit-with-vite-walletkit/)
+- [uploadkit-with-remix-rainbowkit](../../examples/uploadkit-with-remix-rainbowkit/)
 
 
 ## Installation
 
 ```bash
-npm i wagmi viem @bnb-chain/greenfield-js-sdk @bnb-chain/greenfield-cosmos-types @bnb-chain/reed-solomon
+npm i wagmi viem @node-real/greenfield-uploadkit @bnb-chain/greenfield-js-sdk @bnb-chain/greenfield-cosmos-types @bnb-chain/reed-solomon
 ```
 
 ## Usage
