@@ -1,8 +1,8 @@
-name: Stable Release
+name: Alpha release
 on:
   push:
     branches:
-      - main
+      - alpha
 
 jobs:
   release:
@@ -23,14 +23,14 @@ jobs:
       - name: Build packages
         run: pnpm build
 
-      - name: Exit pre mode
+      - name: Enter pre mode
         if: github.event.commits[0].author.username != 'github-actions[bot]'
-        run: pnpm ci:exit
+        run: pnpm ci:enter
 
       - name: Create and publish versions
         uses: changesets/action@v1
         with:
-          version: pnpm ci:stable-version
+          version: pnpm ci:alpha-version
           publish: pnpm ci:publish
           commit: 'chore: update versions'
           title: 'chore: update versions'
