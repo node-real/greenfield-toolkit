@@ -1,6 +1,6 @@
-import '@totejs/walletkit/styles.css';
+import '@node-real/walletkit/styles.css';
 import '@node-real/greenfield-uploadkit/styles.css';
-import { ThemeProvider } from '@totejs/uikit';
+import { ThemeProvider } from '@node-real/uikit';
 import { Routes, Route } from 'react-router-dom';
 
 import { theme } from './theme';

@@ -1,6 +1,6 @@
-import * as icon from '@totejs/icons';
-import * as uikit from '@totejs/uikit';
-import * as walletkit from '@totejs/walletkit';
+import * as icon from '@node-real/icons';
+import * as uikit from '@node-real/uikit';
+import * as walletkit from '@node-real/walletkit';
 import React from 'react';
 import * as wagmi from 'wagmi';
 

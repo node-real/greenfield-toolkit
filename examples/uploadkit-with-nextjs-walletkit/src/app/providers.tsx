@@ -6,13 +6,13 @@ import {
   WalletKitOptions,
   WalletKitProvider,
   getDefaultConfig,
-} from '@totejs/walletkit';
-import { trustWallet, metaMask, walletConnect } from '@totejs/walletkit/wallets';
+} from '@node-real/walletkit';
+import { trustWallet, metaMask, walletConnect } from '@node-real/walletkit/wallets';
 import { UploadKitOptions, UploadKitProvider } from '@node-real/greenfield-uploadkit';
 import { client } from './client';
 
 import '@node-real/greenfield-uploadkit/styles.css';
-import '@totejs/walletkit/styles.css';
+import '@node-real/walletkit/styles.css';
 
 const config = createConfig(
   getDefaultConfig({

@@ -128,10 +128,10 @@ export const client = Client.create(GRPC_URL, String(GREEN_CHAIN_ID), {
 });
 ```
 
-### 4. Integrate [@totejs/walletkit](https://github.com/node-real/walletkit) as the wallet connection library, or connect with [rainbowkit](https://github.com/rainbow-me/rainbowkit)
+### 4. Integrate [@node-real/walletkit](https://github.com/node-real/walletkit) as the wallet connection library, or connect with [rainbowkit](https://github.com/rainbow-me/rainbowkit)
 
 ```bash
-npm install @totejs/walletkit
+npm install @node-real/walletkit
 ```
 
 ### 5. Add WagmiConfig, WalletKitProvider and UploadKitProvider configuration to your project
@@ -144,8 +144,8 @@ import {
   WalletKitOptions,
   WalletKitProvider,
   getDefaultConfig,
-} from '@totejs/walletkit';
-import { trustWallet, metaMask, walletConnect } from '@totejs/walletkit/wallets';
+} from '@node-real/walletkit';
+import { trustWallet, metaMask, walletConnect } from '@node-real/walletkit/wallets';
 import {
   UploadKitButton,
   UploadKitOptions,
@@ -155,7 +155,7 @@ import { chains } from './chains';
 import { client } from './client';
 
 import '@node-real/greenfield-uploadkit/styles.css';
-import '@totejs/walletkit/styles.css';
+import '@node-real/walletkit/styles.css';
 
 const config = createConfig(
   getDefaultConfig({

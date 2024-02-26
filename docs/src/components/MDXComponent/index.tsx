@@ -1,4 +1,4 @@
-import * as UIKit from '@totejs/uikit';
+import * as UIKit from '@node-real/uikit';
 
 import CodeBlock from '../CodeBlock';
 import PropsTable from '../PropsTable';
