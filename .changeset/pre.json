@@ -9,5 +9,7 @@
     "uploadkit-with-vite-walletkit": "0.0.1",
     "@node-real/greenfield-uploadkit": "0.0.5"
   },
-  "changesets": []
+  "changesets": [
+    "slimy-knives-hunt"
+  ]
 }
