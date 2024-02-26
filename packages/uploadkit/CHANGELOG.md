@@ -1,5 +1,17 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.6-alpha.1
+
+### Patch Changes
+
+- b03292b: fix: greenfield-uploadkit auto upgrade version error
+
+## 0.0.6-alpha.0
+
+### Patch Changes
+
+- 27e6b08: chore: fix dependencies' versions in the example project, migrate @totejs/walletkit to @node-real/walletkit.
+
 ## 0.0.5
 
 ### Patch Changes

@@ -6,8 +6,8 @@ import {
   getDefaultConfig,
   WalletKitOptions,
   SwitchNetworkModal,
-} from '@totejs/walletkit';
-import { metaMask, trustWallet, walletConnect } from '@totejs/walletkit/wallets';
+} from '@node-real/walletkit';
+import { metaMask, trustWallet, walletConnect } from '@node-real/walletkit/wallets';
 import {
   UploadKitProvider,
   UploadKitOptions,
@@ -15,7 +15,7 @@ import {
 } from '@node-real/greenfield-uploadkit';
 
 import { chains } from './chains';
-import { Box, useColorMode } from '@totejs/uikit';
+import { Box, useColorMode } from '@node-real/uikit';
 import { client } from './client';
 
 const config = createConfig(
