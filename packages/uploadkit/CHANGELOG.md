@@ -1,5 +1,11 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.6-alpha.1
+
+### Patch Changes
+
+- b03292b: fix: greenfield-uploadkit auto upgrade version error
+
 ## 0.0.6-alpha.0
 
 ### Patch Changes
