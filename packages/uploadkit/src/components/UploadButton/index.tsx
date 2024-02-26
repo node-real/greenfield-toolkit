@@ -30,16 +30,13 @@ export const UploadButton = (props: ButtonProps) => {
   const { totalFee } = useTotalFee();
   const { address, connector } = useAccount();
   const {
-    options: { seedString, sp, visibility, bucketName, onError },
+    options: { client, seedString, sp, visibility, bucketName, onError },
   } = useUploadKitContext();
   const { isGnfd, uploadButtonDisabled } = useUploadDisable();
   const {
     state: { loading },
     dispatch,
   } = useUpload();
-  const {
-    options: { client },
-  } = useUploadKitContext();
   const setLoading = (show: boolean) => {
     dispatch({
       type: 'SET_IS_LOADING',
