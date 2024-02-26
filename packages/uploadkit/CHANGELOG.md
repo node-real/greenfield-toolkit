@@ -1,5 +1,11 @@
 # @node-real/greenfield-uploadkit
 
+## 0.0.7
+
+### Patch Changes
+
+- a2bc4c1: chore: unify the default visibility
+
 ## 0.0.6
 
 ### Patch Changes
