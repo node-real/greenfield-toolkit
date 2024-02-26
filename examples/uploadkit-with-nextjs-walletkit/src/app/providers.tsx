@@ -33,7 +33,7 @@ const options: WalletKitOptions = {
 
 const uploadOptions: UploadKitOptions = {
   client: client,
-  visibility: 'VISIBILITY_TYPE_PRIVATE',
+  visibility: 'VISIBILITY_TYPE_PUBLIC_READ',
 };
 
 export default function Providers({ children }: { children: React.ReactNode }) {

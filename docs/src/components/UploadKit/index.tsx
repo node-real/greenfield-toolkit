@@ -38,7 +38,7 @@ const uploadOptions: UploadKitOptions = {
     operatorAddress: '0x89A1CC91B642DECbC4789474694C606E0E0c420b',
     endpoint: 'https://gnfd-testnet-sp1.bnbchain.org',
   },
-  visibility: 'VISIBILITY_TYPE_PRIVATE',
+  visibility: 'VISIBILITY_TYPE_PUBLIC_READ',
 };
 
 export default function App() {

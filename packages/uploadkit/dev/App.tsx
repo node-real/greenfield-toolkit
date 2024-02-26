@@ -50,7 +50,7 @@ const uploadOptions: UploadKitOptions = {
     operatorAddress: '0x89A1CC91B642DECbC4789474694C606E0E0c420b',
     endpoint: 'https://gnfd-testnet-sp1.bnbchain.org',
   },
-  visibility: 'VISIBILITY_TYPE_PRIVATE',
+  visibility: 'VISIBILITY_TYPE_PUBLIC_READ',
   // onError: console.log,
 };
 
@@ -64,7 +64,7 @@ export default function App() {
       <button onClick={() => setMode(nextMode)}>switch to {nextMode}</button>
       <div style={{ height: 20 }} />
       <WalletKitProvider options={options} mode="light">
-        <UploadKitProvider options={uploadOptions} mode={mode} debugMode={true}>
+        <UploadKitProvider options={uploadOptions} mode={mode}>
           <WalletKitButton />
           <SwitchNetworkModal />
           <div style={{ height: 16 }}></div>
