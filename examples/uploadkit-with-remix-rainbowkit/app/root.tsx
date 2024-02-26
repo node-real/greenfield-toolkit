@@ -58,7 +58,7 @@ export const loader: LoaderFunction = () => {
 
 const uploadOptions: UploadKitOptions = {
   client: client,
-  visibility: 'VISIBILITY_TYPE_PRIVATE',
+  visibility: 'VISIBILITY_TYPE_PUBLIC_READ',
 };
 export default function App() {
   const { ENV } = useLoaderData<LoaderData>();
