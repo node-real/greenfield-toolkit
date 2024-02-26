@@ -10,6 +10,7 @@
     "@node-real/greenfield-uploadkit": "0.0.5"
   },
   "changesets": [
+    "short-pianos-allow",
     "slimy-knives-hunt"
   ]
 }
