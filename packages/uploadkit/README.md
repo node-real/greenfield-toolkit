@@ -29,7 +29,7 @@ npm i wagmi viem @node-real/greenfield-uploadkit @bnb-chain/greenfield-js-sdk @b
 ```
 
 ## Usage
-Before using Greenfield UploadKit, you need to switch your network to the BNB Greenfield Chain. We recommend using [@totejs/walletkit](https://github.com/node-real/walletkit) to connect your wallet and manage the network. This integration will ensure a seamless experience when working with Greenfield UploadKit.
+Before using Greenfield UploadKit, you need to switch your network to the BNB Greenfield Chain. We recommend using [@node-real/walletkit](https://github.com/node-real/walletkit) to connect your wallet and manage the network. This integration will ensure a seamless experience when working with Greenfield UploadKit.
 
 ```tsx
 import { WagmiConfig, createConfig } from 'wagmi';
@@ -39,14 +39,14 @@ import {
   WalletKitOptions,
   WalletKitProvider,
   getDefaultConfig,
-} from '@totejs/walletkit';
-import { trustWallet, metaMask, walletConnect } from '@totejs/walletkit/wallets';
+} from '@node-real/walletkit';
+import { trustWallet, metaMask, walletConnect } from '@node-real/walletkit/wallets';
 import { UploadKitButton, UploadKitOptions, UploadKitProvider } from '@node-real/greenfield-uploadkit';
 import { chains } from './chains';
 import { client } from './client';
 
 import '@node-real/greenfield-uploadkit/styles.css';
-import '@totejs/walletkit/styles.css';
+import '@node-real/walletkit/styles.css';
 
 const config = createConfig(
   getDefaultConfig({
